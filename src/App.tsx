@@ -1,6 +1,8 @@
 
-import { useEffect, useState } from 'react'
+import { Component, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
+import Main from '../Components/Main';
+import { Quote } from '../Types/Types';
 import './App.css'
 
 function App() {
@@ -19,7 +21,7 @@ function App() {
     <div className="App">
     <header><h1 className='title'>Welcome to Quotes of the Day</h1></header>
     <Routes>
-      <Route path='/' element={<Main />} />
+      <Route path='/' element={<Main quotes={[]} />} />
     </Routes>
     </div>
   )
