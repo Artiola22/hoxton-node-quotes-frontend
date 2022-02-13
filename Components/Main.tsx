@@ -15,7 +15,7 @@ function getRandomQuote(){
   
   return (
     <main>
-      <div>
+      <div className="quotes-all">
         <ul className="quotes-list">
           {quotes.map(
             (quote) => (
