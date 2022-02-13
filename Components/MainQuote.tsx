@@ -6,10 +6,10 @@ type Props ={
 function MainQuoteTypes({quote}: Props){
     return(
         <div>
-            <div>
+            {/* <div>
                 <span>{quote.content}</span>
                 <span>{`-${quote.name}`}</span>
-            </div>
+            </div> */}
         </div>
     )
 }
