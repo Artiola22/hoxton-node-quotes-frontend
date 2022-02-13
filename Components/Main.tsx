@@ -28,7 +28,7 @@ function getRandomQuote(){
         
         <button onClick={getRandomQuote}>Random Quotes</button>
         {
-          randomQuote?<li>{`  ${randomQuote.content}- ${randomQuote.name}`}</li>: null
+          randomQuote?<li className="random-quote__list"><b>{`  ${randomQuote.content}-${randomQuote.name}`}</b></li>: null
         }
       </div>
     </main>

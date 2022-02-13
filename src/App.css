@@ -47,3 +47,13 @@ width: 240px;
 height: 60px;
 transition:ease-in-out;
 }
+.random-quote__list{
+  display: grid;
+  place-items: center;
+  background: rgb(34,36,0);
+background: linear-gradient(90deg, rgba(54, 54, 46, 0.74) 0%, rgba(9, 121, 61, 0.274) 35%, rgba(4, 61, 26, 0.575) 100%);
+width: 60vw;
+height: 20vh;
+border-radius: 15px;
+
+}
