@@ -2,6 +2,7 @@
 import { Component, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Main from '../Components/Main';
+import Header from '../Components/Header'
 import { Quote } from '../Types/Types';
 import './App.css'
 
@@ -19,9 +20,9 @@ function App() {
 
   return (
     <div className="App">
-    <header><h1 className='title'>Welcome to Quotes of the Day</h1></header>
+    <Header />
     <Routes>
-      <Route path='/' element={<Main quotes={[]} />} />
+      <Route path='/quotes' element={<Main quotes={quotes} />} />
     </Routes>
     </div>
   )
