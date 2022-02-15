@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { Quote } from "../Types/Types";
 import MainQuote from "../Components/MainQuote";
-type Props = {
+ export type Props = {
   quotes: Quote[];
 };
-type AddForm = {
-  content: content;
-  name: name;
-  image: image;
-  birthDate: birthDate;
+
+type AddForm = HTMLFormElement &  {
+  content: HTMLTextAreaElement;
+  name: HTMLInputElement;
+  image: HTMLInputElement ;
+  birthDate: HTMLInputElement;
+  deathDate: HTMLInputElement;
+  reset: ()=> void
 };
 function Main({ quotes }: Props) {
   const [randomQuote, setRandomQuote] = useState<Quote | null>(null);
@@ -19,7 +22,7 @@ function Main({ quotes }: Props) {
   }
 
   const [newQuote, setNewQuote] = useState<Quote | null>();
-  function createNewQuote({ content, name, image, birthDate }: Quote) {
+  function createNewQuote(content: string, name :string, image: string, birthDate: string, deathDate: string) {
     fetch(`http://localhost:4000/quotes`, {
       method: "POST",
       headers: {
@@ -30,24 +33,26 @@ function Main({ quotes }: Props) {
         name: name,
         image: image,
         birthDate: birthDate,
-      })
-        .then((resp: { json: () => any }) => resp.json())
-        .then((resp: any) => {
-          const newQuote = JSON.parse(JSON.stringify(quotes));
-          newQuote.push(resp);
-          setNewQuote(newQuote);
-        }),
-    });
+        deathDate: deathDate
+    })
+      
+    })
+    .then(resp => resp.json())
+    .then(resp => {
+      const newQuote = JSON.parse(JSON.stringify(quotes));
+      newQuote.push(resp);
+      setNewQuote(newQuote);
+    })
   }
   return (
     <main>
-      <div className="quotes-all">
-        <ul className="quotes-list">
+      
+      <div >
+        {/* <ul>
           {quotes.map((quote) => (
             <li key={quote.id}>{` ${quote.content}- ${quote.name}`}</li>
           ))}
-        </ul>
-
+        </ul> */}
         <button onClick={getRandomQuote}>Random Quotes</button>
         <div className="select__random-quote">
           {randomQuote ? (
@@ -71,8 +76,9 @@ function Main({ quotes }: Props) {
               const birthDateEl = formEl.birthDate.value;
               const imageEl = formEl.image.value
               const contentEl = formEl.content.value
+              const deathDateEl = formEl.deathDate.value
 
-              createNewQuote(nameEl, birthDateEl, imageEl, contentEl)
+              createNewQuote(nameEl, birthDateEl, imageEl, contentEl, deathDateEl)
               formEl.reset()
             }}
           >
@@ -82,7 +88,8 @@ function Main({ quotes }: Props) {
             {/* <label htmlFor="">Name and Surname</label> */}
             <input type="text" name="name" placeholder="Name and Surname" />
             {/* <label htmlFor="">Birth and Death </label> */}
-            <input type="text" name="birth" placeholder="Birth and Death" />
+            <input type="text" name="birthDate" placeholder="Enter birthday here.. " />
+            <input type="text" name="deathDate" placeholder="Enter death here.." />
             {/* <label htmlFor="">Image(link)</label> */}
             <input type="text" name="image" placeholder="Image URL" />
             <br />

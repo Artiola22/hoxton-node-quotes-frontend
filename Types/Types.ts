@@ -1,14 +1,18 @@
-export type Quote ={
-    id: number
-    name: string
-    birthDate: string
-    deathDate: string
-    image: string
-    content: string
-}
 
-export type MainQuoteType ={
-    key: number
-    content: string
-    name: string
+// export type MainQuoteType ={
+//     key: number
+//     content: string
+//     name: string
+// }
+export type Quote = {
+    id: number;
+    name: string;
+    birthDate: string | null ;
+    deathDate: string | null;
+    image: string;
+    content: string;
+  };
+
+  export type Props ={
+    quote: Quote[]
 }

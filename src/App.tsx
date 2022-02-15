@@ -3,8 +3,8 @@ import { Component, useEffect, useState } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Main from '../Components/Main';
 import Header from '../Components/Header'
-import { Quote } from '../Types/Types';
 import './App.css'
+import { Quote } from '../Types/Types';
 
 function App() {
 
@@ -16,13 +16,15 @@ function App() {
   .then(quotes => setQuotes(quotes))
  }
  useEffect(getQoutesFromServer, [])
- 
+
+
 
   return (
     <div className="App">
-    <Header />
+    <Header quotes={quotes}  />
     <Routes>
       <Route path='/quotes' element={<Main quotes={quotes} />} />
+      
     </Routes>
     </div>
   )
