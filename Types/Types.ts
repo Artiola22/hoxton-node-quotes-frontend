@@ -1,6 +1,9 @@
 export type Quote ={
     id: number
     name: string
+    birthDate: string
+    deathDate: string
+    image: string
     content: string
 }
 

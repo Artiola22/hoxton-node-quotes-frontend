@@ -29,6 +29,12 @@ height: 100vh;
 .quotes-list li{
   list-style:square;
 }
+.select__random-quote{
+  width: auto;
+  height: auto;
+  background: rgb(34,36,0);
+  background: linear-gradient(90deg, rgba(54, 54, 46, 0.74) 0%, rgba(9, 121, 61, 0.274) 35%, rgba(4, 61, 26, 0.575) 100%);
+}
 
 button{
   width: 200px;
@@ -50,10 +56,31 @@ transition:ease-in-out;
 .random-quote__list{
   display: grid;
   place-items: center;
-  background: rgb(34,36,0);
-background: linear-gradient(90deg, rgba(54, 54, 46, 0.74) 0%, rgba(9, 121, 61, 0.274) 35%, rgba(4, 61, 26, 0.575) 100%);
+  /* background: rgb(34,36,0);
+background: linear-gradient(90deg, rgba(54, 54, 46, 0.74) 0%, rgba(9, 121, 61, 0.274) 35%, rgba(4, 61, 26, 0.575) 100%); */
 width: 60vw;
 height: 20vh;
 border-radius: 15px;
 
+}
+.qoute-image{
+  display: grid;
+  padding: 1rem;
+  width: 40vw;
+  
+  border-radius: 50px;
+  box-shadow:  5px 8px rgba(44, 68, 44, 0.233);
+}
+
+
+.form{
+  display: grid;
+  grid-gap: 1rem;
+  padding-top: 2rem;
+  
+  place-items: center;
+}
+hr{
+  width: 100%;
+  
 }
