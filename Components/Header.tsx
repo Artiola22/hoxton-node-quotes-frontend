@@ -1,16 +1,22 @@
-import { Props } from "./Main";
+type Props ={
+  setModal: React.Dispatch<React.SetStateAction<string>>
+}
 
-function Header({ quotes }: Props) {
+function Header({setModal}: Props) {
   return (
     <div className="header">
       <h1 className="title">WELCOME TO THE QUOTES </h1>
-      {/* <div className="quotes-all">
-        <ul className="quotes-list">
-          {quotes.map((quote) => (
-            <li  key={quote.id}>{` ${quote.content}- ${quote.name}`}</li>
-          ))}
-        </ul>
-      </div> */}
+     
+      <button
+            id="myBtn"
+            onClick={function () {
+              // if(modal === null) return
+              // modal.style.display = "block"
+              setModal("add");
+            }}
+          >
+            Open Modal
+          </button>
     </div>
   );
 }
