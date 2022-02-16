@@ -21,9 +21,9 @@ function App() {
 
   return (
     <div className="App">
-    <Header quotes={quotes}  />
+    <Header quotes={quotes} setQuotes={setQuotes} />
     <Routes>
-      <Route path='/quotes' element={<Main quotes={quotes} />} />
+      <Route path='/quotes' element={<Main quotes={quotes} setQuotes={setQuotes}/>} />
       
     </Routes>
     </div>

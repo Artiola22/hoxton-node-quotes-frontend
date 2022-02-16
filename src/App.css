@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 80px 1fr;
+  /* grid-template-rows: 80px 1fr; */
 }
 .title {
   display: grid;
@@ -19,6 +19,25 @@
   color: rgb(0, 0, 0);
 }
 
+/* all quotes */
+.all-quotes{
+ /* height: 200px;
+ width: 200px;
+ display: grid;
+ gap: 2rem; */
+ display: grid;
+ grid-template: 200px 200px 200px;
+ grid-auto-flow: column;
+ 
+}
+.each-quote{
+  display: grid;
+  
+  /* grid-column: 100px;
+  grid-row: 100px; */
+  padding: 1rem;
+   border: 1px solid black;
+}
 .form{
   width: auto;
   display: grid;
@@ -44,14 +63,13 @@ input{
 
 .main-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto  auto auto;
   place-items: center;
   gap: 2rem;
   padding: 1rem;
   background-color: rgb(175, 192, 186);
   background-image:
-  linear-gradient(to bottom, rgb(255, 255, 247), rgba(199, 240, 226, 0.5)),
-  url('catfront.png');
+  linear-gradient(to bottom, rgb(255, 255, 247), rgba(199, 240, 226, 0.5))
 }
 
 .random_button {

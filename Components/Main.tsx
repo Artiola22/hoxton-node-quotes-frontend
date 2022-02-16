@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Quote } from "../Types/Types";
 import MainQuote from "../Components/MainQuote";
 export type Props = {
-  quotes: Quote[];
+  quotes: Quote[]
+  setQuotes: React.Dispatch<React.SetStateAction<Quote[]>>
 };
 
 type AddForm = HTMLFormElement & {
@@ -13,7 +14,7 @@ type AddForm = HTMLFormElement & {
   deathDate: HTMLInputElement;
   reset: () => void;
 };
-function Main({ quotes }: Props) {
+function Main({ quotes, setQuotes}: Props) {
   const [randomQuote, setRandomQuote] = useState<Quote | null>(null);
   function getRandomQuote() {
     fetch("http://localhost:4000/random")
@@ -46,7 +47,7 @@ function Main({ quotes }: Props) {
       .then((resp) => {
         const newQuote = JSON.parse(JSON.stringify(quotes));
         newQuote.push(resp);
-        setNewQuote(newQuote);
+        setQuotes(newQuote);
       });
   }
 
@@ -60,11 +61,13 @@ function Main({ quotes }: Props) {
   return (
     <main>
       <div className="main-wrapper">
-        {/* <ul>
+        <div className="all-quotes">
+        <ul className="quote-list">
           {quotes.map((quote) => (
-            <li key={quote.id}>{` ${quote.content}- ${quote.name}`}</li>
+            <li className="each-quote" key={quote.id}>{` ${quote.id}. ${quote.content}- ${quote.name}`}</li>
           ))}
-        </ul> */}
+        </ul>
+        </div>
         <button className="random_button" onClick={getRandomQuote}>
           Random Quotes
         </button>
@@ -86,11 +89,14 @@ function Main({ quotes }: Props) {
 
 
           <button id="myBtn" onClick={function(){
+            if(modal === null) return
             modal.style.display = "block"
+
           }}>Open Modal</button>
           <div className="modal" id="myModal" >
             <div className="modal-content">
               <span className="close" onClick={function(){
+                 if(modal === null) return
                 modal.style.display = 'none'
               }}>&times;</span>
             <form
