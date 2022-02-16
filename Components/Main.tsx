@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Quote } from "../Types/Types";
 import MainQuote from "../Components/MainQuote";
+import MainQuoteTypes from "../Components/MainQuote";
 export type Props = {
   quotes: Quote[];
   setQuotes: React.Dispatch<React.SetStateAction<Quote[]>>;
@@ -26,16 +27,23 @@ function Main({ quotes, setQuotes , setModal}: Props) {
   return (
     <main>
       <div className="main-wrapper">
-        <div className="all-quotes">
+        {/* <div className="all-quotes">
           <ul className="quote-list">
             {quotes.map((quote) => (
               <li
                 className="each-quote"
                 key={quote.id}
-              >{` ${quote.id}. ${quote.content}- ${quote.name}`}</li>
+              > <span>X</span>{` ${quote.id}. ${quote.content}- ${quote.name}`}</li>
+              
             ))}
+            
           </ul>
-        </div>
+        </div> */}
+        
+        
+          <MainQuoteTypes setQuotes={setQuotes} setModal={setModal} quotes={quotes}/>
+        
+       
         <button className="random_button" onClick={getRandomQuote}>
           Random Quotes
         </button>

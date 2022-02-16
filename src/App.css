@@ -7,7 +7,12 @@
   width: 100vw;
   height: 100vh;
   display: grid;
-  /* grid-template-rows: 80px 1fr; */
+  grid-template-rows: 60px 1fr;
+}
+.header{
+  display: grid;
+  grid-template-columns: auto auto ;
+
 }
 .title {
   display: grid;
@@ -26,8 +31,6 @@
  display: grid;
  gap: 2rem; */
  display: grid;
- grid-template: 200px 200px 200px;
- grid-auto-flow: column;
  
 }
 .each-quote{
@@ -63,13 +66,14 @@ input{
 
 .main-wrapper {
   display: grid;
-  grid-template-rows: auto  auto auto;
-  place-items: center;
-  gap: 2rem;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 200px));
+  gap: 1rem;
+  border: solid 5px black;
+  
+  padding: 1rem 0;
+  place-content: center;
   background-color: rgb(175, 192, 186);
-  background-image:
-  linear-gradient(to bottom, rgb(255, 255, 247), rgba(199, 240, 226, 0.5))
+  background-image: linear-gradient(rgb(255, 255, 247), rgba(199, 240, 226, 0.5));
 }
 
 .random_button {
@@ -96,10 +100,10 @@ input{
 }
 .modal-content {
   background-color: #ffffff;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto; 
   padding: 30px;
   border: 4px solid rgb(229, 238, 236);
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%; 
 
 }
 .close {
@@ -123,9 +127,9 @@ input{
 
 .select__random-quote{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
   place-items: center;
-  border: 2px solid rgb(77, 70, 70);
+  
   border-radius: 10px;
   padding: 1rem;
   gap: 0.7rem;
@@ -136,6 +140,7 @@ input{
   place-items: center;
   gap: 10px;
   border: 0.5px solid rgb(182, 175, 175);
+  
 }
 .qoute-image{
   width: 100%;
