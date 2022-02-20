@@ -1,9 +1,9 @@
 
-// export type MainQuoteType ={
-//     key: number
-//     content: string
-//     name: string
-// }
+export type MainQuoteType ={
+    id : number
+    content: string
+    name: string
+}
 export type Quote = {
     id: number;
     name: string;
